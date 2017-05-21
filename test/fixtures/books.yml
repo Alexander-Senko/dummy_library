@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hobbit:
+  title:       The Hobbit, or There and Back Again
+  author:      Bilbo Baggins
+  released_on: 3001-01-01
+  category:    adventure
+
+magic_guide:
+  title:       The Beginner's Guide to Magic
+  author:      Gandalf the Grey
+  released_on: 1001-01-01
+  category:    science
+
+history_of_mordor:
+  title:       The History of Mordor
+  author:      Sauron the Dark Lord
+  released_on: 2951-01-01
+  category:    history

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521221622) do
+ActiveRecord::Schema.define(version: 20170522010841) do
 
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20170521221622) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.string "borrower", null: false
+    t.date "borrowed_on", null: false
+    t.date "should_return_on", null: false
+    t.date "returned_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_requests_on_book_id"
+    t.index ["borrowed_on"], name: "index_requests_on_borrowed_on"
+    t.index ["borrower"], name: "index_requests_on_borrower"
+    t.index ["returned_on"], name: "index_requests_on_returned_on"
+    t.index ["should_return_on"], name: "index_requests_on_should_return_on"
   end
 
 end

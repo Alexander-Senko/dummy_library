@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+smeagol:
+  book:             magic_guide
+  borrower:         Smeagol
+  borrowed_on:      3017-04-01
+  should_return_on: 3017-08-01
+
+gandalf:
+  book:             history_of_mordor
+  borrower:         Gandalf
+  borrowed_on:      3019-03-10
+  should_return_on: 3019-04-30
+  returned_on:      3019-03-30

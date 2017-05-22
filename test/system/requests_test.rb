@@ -59,6 +59,6 @@ class RequestsTest < ApplicationSystemTestCase
   end
 
   test 'librarian can update a request' do
-    # TODO
+    flunk # TODO
   end
 end

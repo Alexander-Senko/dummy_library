@@ -8,7 +8,7 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test 'librarian can list all books alphabetically' do
-    # TODO
+    flunk # TODO
   end
 
   test 'librarian can filter books by category' do
@@ -85,6 +85,6 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test 'librarian can edit a book' do
-    # TODO
+    flunk # TODO
   end
 end

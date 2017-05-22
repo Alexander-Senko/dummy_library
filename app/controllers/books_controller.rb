@@ -8,6 +8,10 @@ class BooksController < ApplicationController
         .where(search_params)
         .order(:title, :author)
 
+    if scope = params[:scope]
+      @books = @books.send scope
+    end
+
     # TODO: add pagination
   end
 

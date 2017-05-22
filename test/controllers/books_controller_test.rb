@@ -10,6 +10,21 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get available' do
+    get books_url(scope: 'available')
+    assert_response :success
+  end
+
+  test 'should get borrowed' do
+    get books_url(scope: 'borrowed')
+    assert_response :success
+  end
+
+  test 'should get delayed' do
+    get books_url(scope: 'delayed')
+    assert_response :success
+  end
+
   test 'should get new' do
     get new_book_url
     assert_response :success

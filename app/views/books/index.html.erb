@@ -2,6 +2,20 @@
 
 <h1>Books</h1>
 
+<menu>
+  <ul>
+    <li>
+      <%= link_to_unless_current 'All', scope: nil %>
+    </li>
+
+    <% for scope in %w[ available borrowed delayed ] %>
+        <li>
+          <%= link_to_unless_current scope.humanize, scope: scope %>
+        </li>
+    <% end %>
+  </ul>
+</menu>
+
 <table>
   <thead>
     <tr>
@@ -17,10 +31,10 @@
         <td>
           <%= book.title %>
           by
-          <%= link_to book.author, author: book.author %>
+          <%= link_to_unless_current book.author, author: book.author %>
         </td>
         <td>
-          <%= link_to book.category.name, category_id: book.category_id %>
+          <%= link_to_unless_current book.category.name, category_id: book.category_id %>
         </td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>

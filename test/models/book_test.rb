@@ -38,4 +38,10 @@ class BookTest < ActiveSupport::TestCase
       assert_not_includes Book.delayed, books(:history_of_mordor)
     end
   end
+
+  test 'current request' do
+    assert_nil                       books(:hobbit).current_request
+    assert_equal requests(:smeagol), books(:magic_guide).current_request
+    assert_nil                       books(:history_of_mordor).current_request
+  end
 end

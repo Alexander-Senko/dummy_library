@@ -1,6 +1,9 @@
 class Book < ApplicationRecord
   belongs_to :category
   has_many   :requests
+  has_one    :current_request, -> { active }, class_name: 'Request'
+
+  delegate :borrower, to: :current_request, allow_nil: true
 
   validates_presence_of :title, :author, :released_on, :category
 

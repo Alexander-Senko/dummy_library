@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th></th>
+      <th>Title & Author</th>
+      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +16,11 @@
       <tr>
         <td>
           <%= book.title %>
-          by <%= book.author %>
+          by
+          <%= link_to book.author, author: book.author %>
+        </td>
+        <td>
+          <%= link_to book.category.name, category_id: book.category_id %>
         </td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>

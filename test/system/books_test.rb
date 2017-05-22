@@ -25,4 +25,15 @@ class BooksTest < ApplicationSystemTestCase
   test 'librarian can edit a book' do
     # TODO
   end
+
+  test 'librarian can list all books alphabetically' do
+    # TODO
+  end
+
+  test 'librarian can filter books by category' do
+    visit books_path(category_id: categories(:history).id)
+
+    assert_no_text categories(:adventure).name
+    assert_no_text categories(:science).name
+  end
 end

@@ -31,5 +31,11 @@ class BookTest < ActiveSupport::TestCase
       assert_includes     Book.delayed, books(:magic_guide)
       assert_not_includes Book.delayed, books(:history_of_mordor)
     end
+
+    travel_to Date.new(3019, 5, 1) do
+      assert_not_includes Book.delayed, books(:hobbit)
+      assert_includes     Book.delayed, books(:magic_guide)
+      assert_not_includes Book.delayed, books(:history_of_mordor)
+    end
   end
 end

@@ -10,10 +10,12 @@ class Book < ApplicationRecord
   }
 
   scope :borrowed, -> {
-    joins(:requests).where(requests: { returned_on: nil })
+    joins(:requests)
+        .merge Request.active
   }
 
-  scope :delayed, -> {
-    joins(:requests).where('requests.should_return_on < ?', Date.today)
+  scope :delayed, -> (date = Date.today) {
+    joins(:requests)
+        .merge Request.expired(date)
   }
 end

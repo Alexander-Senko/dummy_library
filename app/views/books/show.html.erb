@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @book.title %>
+  <small>
+    by <%= @book.author %>
+  </small>
+</h1>
+
+<p>
+  Released on <%= @book.released_on.to_s :long %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

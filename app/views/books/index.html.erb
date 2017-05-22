@@ -21,12 +21,12 @@
     <tr>
       <th>Title & Author</th>
       <th>Category</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @books.each do |book| %>
+    <% for book in @books.preload :current_request do %>
       <tr>
         <td>
           <%= book.title %>
@@ -39,6 +39,15 @@
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if book.current_request %>
+              <%= link_to 'Borrowed', book.current_request %>
+              by
+              <%= link_to book.borrower, requests_path(borrower: book.borrower, scope: :active) %>
+          <% else %>
+              <%= link_to 'Request', new_book_request_path(book) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

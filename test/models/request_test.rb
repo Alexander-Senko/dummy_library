@@ -27,4 +27,12 @@ class RequestTest < ActiveSupport::TestCase
       assert_includes     Request.expired, requests(:smeagol)
     end
   end
+
+  test 'active_requests' do
+    flunk # TODO
+  end
+
+  test 'expired_requests' do
+    flunk # TODO
+  end
 end
